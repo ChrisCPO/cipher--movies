@@ -2,14 +2,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.1'
 
+# gem 'pg', '0.18.1'
 gem 'bcrypt', '3.1.7'
+gem 'eventmachine'
 gem 'jbuilder', '2.0'
 gem 'jquery-rails', '2.0.2'
-# gem 'pg', '0.18.1'
 gem 'settingslogic', '2.0.9'
 gem 'sqlite3', '1.3.10'
-gem 'turbolinks', '2.5.3'
 gem 'thin', '1.6.3'
+gem 'turbolinks', '2.5.3'
 
 group :doc do
   gem 'sdoc', '0.4.0'
@@ -26,6 +27,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'database_cleaner', '1.4.0'
   gem 'factory_girl_rails', '4.5.0', require: false
   gem 'rspec', '3.2.0'
