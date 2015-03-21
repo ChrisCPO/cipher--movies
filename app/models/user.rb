@@ -21,9 +21,8 @@ class User < ActiveRecord::Base
     token = SecureRandom.urlsafe_base64(nil, false)
     update_attribute :auth_token, token
   end
-  
+
   def destroy_token!
     update_attribute :auth_token, nil
   end
-
 end
