@@ -4,8 +4,10 @@ require File.expand_path("../../config/environment", __FILE__)
 
 require 'rspec/rails'
 require 'factory_girl_rails'
+require "helpers/helpers"
 
 RSpec.configure do |config|
+  config.include Helpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
