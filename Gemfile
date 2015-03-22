@@ -16,13 +16,10 @@ group :doc do
   gem 'sdoc', '0.4.0'
 end
 
-group :development, :test do
+group :development do
   gem 'better_errors', '2.1.1'
   gem 'binding_of_caller', '0.7.2'
   gem 'pry', '0.10.1'
-end
-
-group :development do
   gem 'spring'
 end
 
@@ -30,7 +27,6 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner', '1.4.0'
   gem 'factory_girl_rails', '4.5.0', require: false
-  gem 'rspec', '3.2.0'
   gem 'rspec-rails', '3.2.1'
   gem 'shoulda', '3.5.0'
 end
