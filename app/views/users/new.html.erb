@@ -1,0 +1,28 @@
+<h2> Sign Up </h2>
+
+<%= form_for @user do |form| %>
+
+  <div>
+    <%= render partial: "form_errors/errors", locals: {object: @user} %>
+  </div>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit "Sign Up" %>
+  </div>
+
+<% end %>

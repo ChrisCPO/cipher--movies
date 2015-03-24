@@ -1,0 +1,10 @@
+<div class="errors">
+  <% if object.errors.any? %>
+    <%= pluralize(object.errors.count, "error") %> prevented your account form being created:
+  <ul>
+    <% object.errors.full_messages.each do |error_message| %>
+      <li><%= error_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
