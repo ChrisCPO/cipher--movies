@@ -1,14 +1,12 @@
 require "rails_helper"
 
 describe User do
-
   describe "validations" do
 
     it { should validate_presence_of :email }
     it { should validate_presence_of :name }
 
     context "for a new user" do
-
       it "should not be valid without a password" do
         user = FactoryGirl.build(:user, password: nil, password_confirmation: nil)
         expect(user).to_not be_valid
@@ -23,7 +21,6 @@ describe User do
         user = FactoryGirl.build(:user, password: "weather", password_confirmation: "whether")
         expect(user).to_not be_valid
       end
-
     end
 
     context "for an existing user" do
@@ -43,7 +40,6 @@ describe User do
         user.password = user.password_confirmation = "new password"
         expect(user).to be_valid
       end
-
     end
   end
 
@@ -70,7 +66,6 @@ describe User do
         expect(user.authenticate_with_token('nope')).to eq false
         expect(user.authenticate_with_token(nil)).to eq false
       end
-
     end
 
     context "for a user with an auth token" do
