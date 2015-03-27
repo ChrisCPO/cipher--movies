@@ -3,9 +3,11 @@ require "net/http"
 
 class DataRetriever
   include ActiveModel::Model
-  attr_reader :search_info
+  attr_reader :search_info, :search_by_id
+  attr_accessor :url
 
-  def get_data(seach_info)
+  def get_data(search_info, options = {})
+    @search_by_id = options[:search_by_id] ||= false
     @search_info = search_info
     indifferent_hash
   end
@@ -21,10 +23,27 @@ class DataRetriever
   end
 
   def net_info
-    Net::HTTP.get(url)
+    set_url
+    Net::HTTP.get(URI(url))
   end
 
-  def url
-    URI("https://itunes.apple.com/search?term=#{search_info}&entity=movie")
+  def set_url
+    if search_by_id?
+      self.url = search_by_id_url
+    else
+      self.url = search_movies_url
+    end
+  end
+
+  def search_movies_url
+    "https://itunes.apple.com/search?term=#{search_info}&entity=movie"
+  end
+
+  def search_by_id_url
+    "https://itunes.apple.com/lookup?id=#{search_info}"
+  end
+
+  def search_by_id?
+    @search_by_id
   end
 end

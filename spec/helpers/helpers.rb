@@ -9,6 +9,10 @@ module Helpers
     click_button "Sign In"
   end
 
+  def movie_in_test_response
+    itunes_response[:results][0]
+  end
+
   def itunes_response
     api_json_response.with_indifferent_access
   end

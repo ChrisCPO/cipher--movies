@@ -7,6 +7,4 @@ FactoryGirl.define do
     password_confirmation { |u| u.password }
     auth_token { SecureRandom.urlsafe_base64(nil, false) }
   end
-
 end
-
