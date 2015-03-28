@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
       User.find(session[:user_id])
     end
   end
+
+  private
+
+  def data_retriever
+    DataRetriever.new
+  end
 end
