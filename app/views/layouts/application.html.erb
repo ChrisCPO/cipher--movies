@@ -10,6 +10,7 @@
 
   <div>
   <% if current_user %>
+    <%= link_to "My Watch List", watch_list_path %>
     <%= link_to current_user.email, dashboard_path %>
     <%= link_to "Sign Out", session_path, method: :delete %>
   <% else %>

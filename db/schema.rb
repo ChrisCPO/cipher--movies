@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318152520) do
+ActiveRecord::Schema.define(version: 20150330012300) do
+
+  create_table "movies", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -24,5 +30,12 @@ ActiveRecord::Schema.define(version: 20150318152520) do
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token"
   add_index "users", ["email"], name: "index_users_on_email"
+
+  create_table "watch_lists", force: true do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

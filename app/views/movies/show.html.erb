@@ -1,4 +1,10 @@
 <h1> <%= @movie.title %> </h1>
+<% if current_user.has_movie?(@movie) %>
+  <p> <%= @movie.title %> is in your Watch List </p>
+<% else %>
+  <%= button_to "Add to My List", movie_watch_list_path(@movie.id), method: :create %>
+<% end %>
+
 <p> Rated <%= @movie.content_advisory_rating %> </p>
 <p> Genre <%= @movie.genre %> </p>
 <p> Length <%= @movie.length %> </p>
@@ -7,4 +13,4 @@
   <%= image_tag @movie.image_large, size: "151x227" %>
 <div>
   <p> <%= @movie.long_description %> </p>
-<h6> itunes ID: <%= @movie.apple_id %> </h6>
+<h6> itunes ID: <%= @movie.id %> </h6>

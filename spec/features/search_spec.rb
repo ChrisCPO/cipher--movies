@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Search" do
+describe "Search", type: :feature do
   scenario "user can search itunes for movies" do
     user = FactoryGirl.create(:user)
     sign_in(user)

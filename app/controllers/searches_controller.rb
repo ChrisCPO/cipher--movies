@@ -1,16 +1,21 @@
 class SearchesController < ApplicationController
+  attr_reader :results
+
   def show
     @results = aquire_movies
+    save_search_link
   end
 
   private
 
+  def save_search_link
+    session[:last_search] = request.fullpath
+  end
+
   def aquire_movies
-    movies = []
-    itunes_results[:results].each do |movie_info|
-     movies << SearchedMovie.new(movie_info)
+    itunes_results[:results].map do |movie_info|
+      TemporaryMovie.new(movie_info)
     end
-    movies
   end
 
   def itunes_results
