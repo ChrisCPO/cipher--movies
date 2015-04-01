@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
 
   def aquire_movie
     movie_data = itunes_results[:results][0]
-    SearchedMovie.new(movie_data)
+    TemporaryMovie.new(movie_data)
   end
 
   def itunes_results

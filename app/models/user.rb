@@ -6,6 +6,17 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  has_many :watch_lists
+  has_many :movies, through: :watch_lists
+
+  def add_movie(movie)
+    self.movies << movie
+  end
+
+  def has_movie?(movie)
+    self.movies.exists?(id: movie.id)
+  end
+
   def authenticate(password)
     return false unless user = super(password)
     user.create_token! if user.auth_token.nil?

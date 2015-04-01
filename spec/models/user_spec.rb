@@ -1,6 +1,11 @@
 require "rails_helper"
 
 describe User do
+  describe "relationships" do
+    it { should have_many(:watch_lists) }
+    it { should have_many(:movies).through(:watch_lists) }
+  end
+
   describe "validations" do
 
     it { should validate_presence_of :email }
@@ -99,6 +104,46 @@ describe User do
       it "should return false when token authentication fails" do
         expect(user.authenticate_with_token('nope')).to eq false
       end
+    end
+  end
+
+  describe ".add_movie" do
+    it "should add a movie to a users collection" do
+      user = FactoryGirl.create(:user)
+      movie = FactoryGirl.create(:movie)
+
+      user.add_movie(movie)
+
+      expect(user.movies).to include movie
+    end
+  end
+
+  describe ".add_movie" do
+    it "returns true if user.movies includes movie" do
+      user = FactoryGirl.create(:user)
+      movie = FactoryGirl.create(:movie)
+
+      user.movies << movie
+
+      expect(user.has_movie?(movie)).to eq true
+    end
+
+    it "returns false if user.moves does not include movie" do
+      user = FactoryGirl.create(:user)
+      movie = FactoryGirl.create(:movie)
+
+      expect(user.has_movie?(movie)).to eq false
+    end
+
+    it "returns true when comparing Movie to temp movie" do
+      user = FactoryGirl.create(:user)
+      movie = FactoryGirl.create(:movie)
+      temp_movie = TemporaryMovie.new(movie_in_test_response)
+
+      allow(temp_movie).to receive(:id) { movie.id }
+      user.movies << movie
+
+      expect(user.has_movie?(temp_movie)).to eq true
     end
   end
 end

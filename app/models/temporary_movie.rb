@@ -1,4 +1,4 @@
-class SearchedMovie
+class TemporaryMovie
   include ActiveModel::Model
   attr_reader :movie_info
 
@@ -10,7 +10,7 @@ class SearchedMovie
     movie_info[:trackName]
   end
 
-  def apple_id
+  def id
     movie_info[:trackId]
   end
 
@@ -46,6 +46,10 @@ class SearchedMovie
   def length
     time = movie_info[:trackTimeMillis].to_i
     format_time(time)
+  end
+
+  def local_db_movie_info_hash
+    {id: self.id , title: self.title}
   end
 
   private
