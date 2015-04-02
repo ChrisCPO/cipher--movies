@@ -3,15 +3,19 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.2'
 
 # gem 'pg', '0.18.1'
+# gem 'sqlite3', '1.3.10'
 gem 'bcrypt', '3.1.7'
 gem 'eventmachine'
 gem 'jbuilder', '2.0'
 gem 'jquery-rails', '2.0.2'
-gem 'rails_12factor'
+gem 'pg'
 gem 'settingslogic', '2.0.9'
-gem 'sqlite3', '1.3.10'
 gem 'thin', '1.6.3'
 gem 'turbolinks', '2.5.3'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :doc do
   gem 'sdoc', '0.4.0'
