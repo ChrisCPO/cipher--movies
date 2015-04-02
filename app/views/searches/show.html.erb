@@ -1,5 +1,7 @@
 <h2> Search Results </h2>
 
+<p><%= @results.count; pluralize(@results.count, "Movie" ) %> Found </p>
+
 <div>
-  <%= render partial: "searches/preview", collection: @results %>
+  <%= render partial: "searches/preview", collection: @results.movies %>
 <div>
