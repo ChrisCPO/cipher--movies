@@ -1,8 +1,11 @@
 class SearchesController < ApplicationController
-  attr_reader :results
+  attr_reader :iresults
 
   def show
-    @results = aquire_movies
+    @results = SearchResult.new(
+                                movies: aquire_movies,
+                                 count: iresults[:resultCount]
+                               )
     save_search_link
   end
 
@@ -13,7 +16,8 @@ class SearchesController < ApplicationController
   end
 
   def aquire_movies
-    itunes_results[:results].map do |movie_info|
+    @iresults = itunes_results
+    iresults[:results].map do |movie_info|
       TemporaryMovie.new(movie_info)
     end
   end
