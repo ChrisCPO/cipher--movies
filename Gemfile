@@ -12,6 +12,7 @@ gem 'pg'
 gem 'settingslogic', '2.0.9'
 gem 'thin', '1.6.3'
 gem 'turbolinks', '2.5.3'
+gem 'uglifier'
 
 group :production do
   gem 'rails_12factor'

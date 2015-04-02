@@ -168,6 +168,9 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.7.1)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     vcr (2.9.3)
     webmock (1.21.0)
       addressable (>= 2.3.6)
@@ -199,5 +202,6 @@ DEPENDENCIES
   spring
   thin (= 1.6.3)
   turbolinks (= 2.5.3)
+  uglifier
   vcr
   webmock
