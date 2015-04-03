@@ -21,6 +21,8 @@ test:
 production:
   <<: *default
   database: cipher_movies_production
+  username: cipher_movies
+  password: <%= ENV['CIPHER_MOVIES_DATABASE_PASSWORD'] %>
 
 
 ######################################################################
