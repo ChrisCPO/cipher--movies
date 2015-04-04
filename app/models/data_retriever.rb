@@ -24,7 +24,6 @@ class DataRetriever
 
   def net_info
     set_url
-    raise
     Net::HTTP.get(URI(url))
   end
 
