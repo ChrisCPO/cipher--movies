@@ -49,5 +49,20 @@ describe DataRetriever do
 
       expect(data_retriever.url).to eq answer
     end
+
+    it "removes spaces in word data" do
+      data_retriever = DataRetriever.new
+      search_info = " the Hobbit "
+      answer = "https://itunes.apple.com/search?term=the+Hobbit&entity=movie"
+
+      allow_any_instance_of(DataRetriever).to receive(:json_convert) do
+        api_json_response
+      end
+
+      data_retriever.get_data(search_info)
+      data_retriever.send(:set_url)
+
+      expect(data_retriever.url).to eq answer
+    end
   end
 end
