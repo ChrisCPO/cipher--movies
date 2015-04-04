@@ -36,11 +36,15 @@ class DataRetriever
   end
 
   def search_movies_url
-    "https://itunes.apple.com/search?term=#{search_info}&entity=movie"
+    "https://itunes.apple.com/search?term=#{search_words}&entity=movie"
   end
 
   def search_by_id_url
     "https://itunes.apple.com/lookup?id=#{search_info}"
+  end
+
+  def search_words
+    search_info.strip.gsub(" ", "+")
   end
 
   def search_by_id?
