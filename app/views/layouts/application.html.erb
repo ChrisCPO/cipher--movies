@@ -13,13 +13,13 @@
     <%= link_to "My Watch List", watch_list_path %>
     <%= link_to current_user.email, dashboard_path %>
     <%= link_to "Sign Out", session_path, method: :delete %>
+    <%= render partial: "searches/search_bar" %>
   <% else %>
     <%= link_to "Sign In", new_session_path %>
     <%= link_to "Sign Up", new_user_path %>
   <% end %>
   <div>
 
-  <%= render partial: "searches/search_bar" %>
 </head>
 <body>
 
