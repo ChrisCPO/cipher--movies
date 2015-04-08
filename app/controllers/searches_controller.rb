@@ -4,7 +4,8 @@ class SearchesController < ApplicationController
   def show
     @results = SearchResult.new(
                                 movies: aquire_movies,
-                                 count: iresults[:resultCount]
+                                 count: iresults[:resultCount],
+                                 query: params[:search]
                                )
     save_search_link
   end

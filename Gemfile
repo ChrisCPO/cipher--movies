@@ -2,9 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.2'
 
-# gem 'pg', '0.18.1'
-# gem 'sqlite3', '1.3.10'
 gem 'bcrypt', '3.1.7'
+gem 'delayed_job_active_record'
 gem 'eventmachine'
 gem 'jbuilder', '2.0'
 gem 'jquery-rails', '2.0.2'

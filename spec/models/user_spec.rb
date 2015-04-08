@@ -4,6 +4,7 @@ describe User do
   describe "relationships" do
     it { should have_many(:watch_lists) }
     it { should have_many(:movies).through(:watch_lists) }
+    it { should have_many(:notifications) }
   end
 
   describe "validations" do
@@ -144,6 +145,17 @@ describe User do
       user.movies << movie
 
       expect(user.has_movie?(temp_movie)).to eq true
+    end
+  end
+
+  describe ".add_notification" do
+    it "adds a notification to users notifications" do
+      user = FactoryGirl.create(:user)
+      notification = FactoryGirl.create(:notification)
+
+      user.add_notification(notification)
+
+      expect(user.notifications).to include notification
     end
   end
 end

@@ -1,0 +1,3 @@
+class MovieNotificationJob
+
+end

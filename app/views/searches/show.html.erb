@@ -2,6 +2,13 @@
 
 <p><%= @results.count; pluralize(@results.count, "Movie" ) %> Found </p>
 
+<% if @results.no_results? %>
+  <%= @results.class %>
+  <p> recieve notification when a movie titled <%= @results.query %>
+becomes available? </p>
+  <%= button_to "Notify", notifications_path(query: @results.query) %>
+<% end %>
+
 <div>
   <%= render partial: "searches/preview", collection: @results.movies %>
 <div>

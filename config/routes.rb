@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resource :search, only: [:show] do
     resources :movies, only: [:show]
   end
+  resources :notifications, only: [:create, :index]
   resources :movies, only: [:show] do
     resource :watch_list, only: [:create]
   end

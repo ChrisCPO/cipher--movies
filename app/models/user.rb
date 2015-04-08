@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :watch_lists
   has_many :movies, through: :watch_lists
+  has_many :notifications
 
   def add_movie(movie)
     self.movies << movie
@@ -15,6 +16,10 @@ class User < ActiveRecord::Base
 
   def has_movie?(movie)
     self.movies.exists?(id: movie.id)
+  end
+
+  def add_notification(new_notification)
+    self.notifications << new_notification
   end
 
   def authenticate(password)
