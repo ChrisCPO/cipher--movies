@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     self.notifications << new_notification
   end
 
+  def remove_notification(notification)
+    notifications.destroy(notification)
+  end
+
   def authenticate(password)
     return false unless user = super(password)
     user.create_token! if user.auth_token.nil?

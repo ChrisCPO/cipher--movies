@@ -1,0 +1,3 @@
+<h2> <%= @notification.title %> </h2>
+<p> Created at <%= @notification.created_at.strftime("%B %d, %Y") %> <p>
+<%= button_to "Delete", notification_path, method: :delete %>

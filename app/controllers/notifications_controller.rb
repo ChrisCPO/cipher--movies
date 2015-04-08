@@ -1,6 +1,10 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = current_user.notifications
+    @notifications = current_user.notifications.order(created_at: :desc)
+  end
+
+  def show
+    @notification = Notification.find(params[:id])
   end
 
   def create
@@ -10,6 +14,13 @@ class NotificationsController < ApplicationController
      current_user.add_notification(@notification)
      redirect_to notifications_path
    end
+  end
+
+  def destroy
+    @notification = Notification.find(params[:id])
+    current_user.remove_notification(@notification)
+
+    redirect_to notifications_path
   end
 
   private

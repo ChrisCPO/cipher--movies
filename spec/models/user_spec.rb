@@ -158,4 +158,17 @@ describe User do
       expect(user.notifications).to include notification
     end
   end
+
+  describe ".remove_notification" do
+    it "deletes a users notification" do
+      user = FactoryGirl.create(:user)
+      notification = FactoryGirl.create(:notification)
+
+      user.notifications << notification
+      user.remove_notification(notification)
+
+      expect(user.notifications.length).to eq 0
+      expect(user.notifications).not_to include notification
+    end
+  end
 end
