@@ -1,0 +1,18 @@
+
+<h1>Let's look for some movies!</h1>
+
+<%= form_tag new_movie_path, method: "get" do %>
+  <%= text_field_tag :movie, params[:movie], placeholder: "Search Movie" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<br/>
+
+<%= @movie %>
+
+<% if @movie != nil %>
+  <%= form_tag new_movie_path, method: "post" do %>
+    <% text_field_tag :movie, params[:movie], value: params[:movie] %>
+    <%= submit_tag "Save this movie!" %>
+  <% end %>
+<% end %> 

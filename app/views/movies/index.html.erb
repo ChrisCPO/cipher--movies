@@ -1,0 +1,9 @@
+<h1>Your movies!!</h1>
+
+<br/>
+
+<% @movies.each do |movie| %>
+  <% if movie.user_id == current_user.id %>
+    <%= movie.name %>
+  <% end %>
+<% end %>
