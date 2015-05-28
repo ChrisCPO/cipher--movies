@@ -48,6 +48,8 @@ GEM
     database_cleaner (1.4.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.4.0)
@@ -57,6 +59,8 @@ GEM
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     hike (1.2.3)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -71,16 +75,21 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailgun (0.8)
+      rest-client
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.5.1)
     multi_json (1.11.0)
     multi_xml (0.5.5)
+    netrc (0.10.3)
     polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -102,6 +111,10 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -159,6 +172,9 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
 
 PLATFORMS
   ruby
@@ -172,7 +188,8 @@ DEPENDENCIES
   httparty
   jbuilder (= 2.0)
   jquery-rails (= 2.0.2)
-  pry (= 0.10.1)
+  mailgun
+  pry-rails
   rails (= 4.1.1)
   rspec (= 3.2.0)
   rspec-rails (= 3.2.1)
