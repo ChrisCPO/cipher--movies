@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
 
       # Send them on their way
-      binding.pry
       redirect_to new_movie_path, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid email or password"

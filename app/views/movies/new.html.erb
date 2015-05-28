@@ -11,8 +11,5 @@
 <%= @movie %>
 
 <% if @movie != nil %>
-  <%= form_tag new_movie_path, method: "post" do %>
-    <% text_field_tag :movie, params[:movie], value: params[:movie] %>
-    <%= submit_tag "Save this movie!" %>
-  <% end %>
-<% end %> 
+  <%= link_to "Save this movie!", movies_path, :method => :post %>
+<% end %>
