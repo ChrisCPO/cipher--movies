@@ -6,14 +6,14 @@ class ModelMailer < ActionMailer::Base
   #
   #   en.model_mailer.new_record_notification.subject
   #
-  def new_record_notification(first_name, recipient, movie)
-    @first_name = first_name
+  def new_record_notification(name, recipient, movie)
+    @name = name
     @movie = movie
     mail to: recipient, subject: "You've signed up for movie updates!"
   end
 
-  def movie_available_email(first_name, recipient, movie)
-    @first_name = first_name
+  def movie_available_email(name, recipient, movie)
+    @name = name
     @movie = movie
     mail to: recipient, subject: "You're movie is availble on iTunes!!"
   end

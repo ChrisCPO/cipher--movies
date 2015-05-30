@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20150407221037) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.boolean  "subscribed", default: false
+    t.boolean  "notified",   default: false
   end
 
   create_table "users", force: true do |t|
