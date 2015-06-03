@@ -8,8 +8,12 @@
 
 <br/>
 
-<%= @movie %>
-
-<% if @movie != nil %>
+<% if @movie != nil && @movie_status == false %>
+  <span>The movie <%= params[:movie] %> is not available in iTunes. Click below to subscribe to an email notification. </span>
+  <%= @movie %>
+  <% @movie_status %>
+  <%= link_to "Subscribe", movies_path, :method => :post %>
+<% elsif @movie != nil %>
+  <%= @movie %>
   <%= link_to "Save this movie!", movies_path, :method => :post %>
 <% end %>
